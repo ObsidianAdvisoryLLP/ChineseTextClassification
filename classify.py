@@ -19,3 +19,8 @@ if __name__ == '__main__':
     	unlabeled_data[i]['label'] = cnn_model.predict(unlabeled_data[i]['text'])
     with open('all_data.json', 'w') as f:
         json.dump(labeled_data + unlabeled_data, f, ensure_ascii=False)
+    
+    with open('submit_labels.txt','w') as f:
+        for status in labeled_data + unlabeled_data:
+          line = str(status['id']) + '\t\t' + status['label'] + '\n'
+          f.write(line)
