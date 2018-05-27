@@ -10,7 +10,7 @@ def combine_data():
         file_name = 'Status_Data'+str(i)+'.json'
         with open('./AI/data/ubs/UBS Weibo Data/weibo/'+file_name, "rb") as infile:
             result += json.load(infile)
-        global result_dict
+    global result_dict
     for status in result:
         result_dict[status['id']] = status
 
