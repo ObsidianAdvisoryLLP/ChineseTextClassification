@@ -15,8 +15,24 @@ def combine_data():
         result_dict[status['id']] = status
 
 labeled_data = []
+count_labels = {
+                    '0':0,
+                    '1':0,
+                    '2':0,
+                    '3':0,
+                    '4':0,
+                    '5':0,
+                    '6':0,
+                    '7':0,
+                    '8':0,
+                    '9':0,
+                    '10':0,
+                    '11':0,
+                    '12':0
+                }
 def read_labels():
     global labeled_data
+    global count_labels
     with open('./AI/data/ubs/UBS Weibo Data/weibo/train_label.txt','r') as source:
         count = 0
         for line in source:
@@ -27,10 +43,12 @@ def read_labels():
             else:
                 sid = fields[0]
             label = fields[1].split('\n')[0]
+            count_labels[label] += 1
             status = result_dict[sid]
             del result_dict[sid]
             status['label'] = label
             labeled_data.append(status)
+    print(count_labels)
 
 def shuffle_save_labeled_data():
     from random import shuffle

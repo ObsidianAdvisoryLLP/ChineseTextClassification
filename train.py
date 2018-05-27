@@ -4,8 +4,8 @@ from AI.preprocessing import combine_data, read_labels, shuffle_save_labeled_dat
 from AI.cnn import start_train, start_test
 
 if __name__ == '__main__':
-    combine_data()
-    read_labels()
-    shuffle_save_labeled_data()
-    start_train()
+    #combine_data()
+    #read_labels()
+    #shuffle_save_labeled_data()
+    #start_train()
     start_test()
